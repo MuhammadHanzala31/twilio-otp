@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const cron = require("node-cron");
 
 app.use(cors());
 app.use(express.json());
@@ -10,6 +11,13 @@ const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_VERIFY_SERVICE_SID, PORT }
 const twilio = require("twilio")(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 // Health check
+cron.schedule("*/14 * * * *", () => {
+  console.log("Har 14 minute baad ka kaam chalu...");
+ app.get("/", (req, res) => {
+  res.json({ ok: true, message: "OTP server running" });
+});
+});
+
 app.get("/", (req, res) => {
   res.json({ ok: true, message: "OTP server running" });
 });
