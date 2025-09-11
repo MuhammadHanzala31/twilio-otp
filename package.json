@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
+ "dependencies": {
+    "express": "^4.17.1",
+    "twilio": "^4.11.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "twilio": "^5.8.0"
+    "dotenv": "^16.0.0",
+    "axios": "^1.4.0"
   }
 }
