@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const cron = require("cron");
+const cron = require("node-cron"); // FIXED: node-cron import
+
 const axios = require("axios");
 const app = express();
  
