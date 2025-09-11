@@ -68,19 +68,20 @@ app.post("/submit-form", async (req, res) => {
     }
  
     const nameParts = fullName.split(" ");
-    const ghlData = {
-      firstName: nameParts[0],
-      lastName: nameParts.length > 1 ? nameParts.slice(1).join(" ") : "",
-      email,
-      phone,
-      customFields: {
-        state,
-        mortgage_balance: mortgageBalance,
-        monthly_payment: monthlyPayment,
-        beneficiary,
-        medical_history: medicalHistory
-      }
-    };
+  const ghlData = {
+  firstName: nameParts[0],
+  lastName: nameParts.length > 1 ? nameParts.slice(1).join(" ") : "",
+  email,
+  phone,
+  customFields: {
+    state_lead,
+    mortgage_balance: mortgageBalance,
+    monthly_payment: monthlyPayment,
+    beneficiary_leads,
+    medical_history: medicalHistory
+  },
+  tags: ["mortgage lead"] // ✅ add tag here
+};
  
     const response = await axios.post(
       "https://rest.gohighlevel.com/v1/contacts/",
